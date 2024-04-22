@@ -6,7 +6,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Skeleton } from '@components/shared/Skeleton';
 
-function EventBanners({ props }: { props?: any }) {
+function EventBanners() {
   const { data } = useEventBanners();
 
   return (
