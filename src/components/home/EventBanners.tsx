@@ -10,23 +10,36 @@ function EventBanners({ props }: { props?: any }) {
   const { data } = useEventBanners();
 
   return (
-    <Swiper spaceBetween={8}>
-      {data?.map((banner) => (
-        <SwiperSlide
-          key={banner.id}
-          style={{ backgroundColor: banner.backgroundColor }}
-        >
-          <Link href={banner.link}>
-            <p>{banner.title}</p>
-            <p>{banner.subTitle}</p>
-            <Image src={banner.iconUrl} width={40} height={40} alt="" />
-          </Link>
-        </SwiperSlide>
-      ))}
-    </Swiper>
+    <div className="p-6">
+      <Swiper spaceBetween={8}>
+        {data?.map((banner) => (
+          <SwiperSlide
+            key={banner.id}
+            style={{ backgroundColor: banner.backgroundColor }}
+            className="p-6 rounded-md"
+          >
+            <Link href={banner.link} className="flex justify-between">
+              <div>
+                <p>{banner.title}</p>
+                <p>{banner.subTitle}</p>
+              </div>
+              <Image src={banner.iconUrl} width={40} height={40} alt="" />
+            </Link>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
   );
 }
 
+export const BannerSkeleton = () => {
+  return (
+    <div className="p-6">
+      <Skeleton width="100%" height={100} className="rounded-md" />
+    </div>
+  );
+};
+
 export default withSuspense(EventBanners, {
-  fallback: <Skeleton width="100%" height={100} />,
+  fallback: <BannerSkeleton />,
 });

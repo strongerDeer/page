@@ -1,10 +1,12 @@
 'use client';
-import { Skeleton } from '@components/shared/Skeleton';
+import Account from '@components/home/Account';
+import { BannerSkeleton } from '@components/home/EventBanners';
+
 import dynamic from 'next/dynamic';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
 const EventBanners = dynamic(() => import('@components/home/EventBanners'), {
-  loading: () => <Skeleton width="100%" height={100} />,
+  loading: () => <BannerSkeleton />,
   ssr: false,
 });
 
@@ -13,8 +15,8 @@ export default function Home() {
   return (
     <main>
       <QueryClientProvider client={client}>
-        <p className="bg-blue-100">Hello</p>
         <EventBanners />
+        <Account />
       </QueryClientProvider>
     </main>
   );
