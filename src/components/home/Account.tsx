@@ -12,7 +12,7 @@ export default function Account() {
 
   return (
     <>
-      <div className="flex justify-between items-center gap-4 p-4">
+      <div className="flex justify-between items-center gap-4 p-6">
         <div className="flex flex-col items-start gap-2">
           {hasAccount ? (
             <>

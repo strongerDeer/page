@@ -20,8 +20,8 @@ function EventBanners({ props }: { props?: any }) {
           >
             <Link href={banner.link} className="flex justify-between">
               <div>
-                <p>{banner.title}</p>
-                <p>{banner.subTitle}</p>
+                <p className="text-white text-lg font-bold">{banner.title}</p>
+                <p className="text-slate-200">{banner.subTitle}</p>
               </div>
               <Image src={banner.iconUrl} width={40} height={40} alt="" />
             </Link>
