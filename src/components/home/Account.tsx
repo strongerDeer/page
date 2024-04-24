@@ -1,4 +1,4 @@
-import Image from 'next/image';
+// import Image from 'next/image';
 
 export default function Account() {
   const hasAccount = false;
@@ -42,7 +42,7 @@ export default function Account() {
             분석
           </button>
         ) : (
-          <Image src="" width="40" height="40" alt="계좌" />
+          <>{/* <Image src="" width="40" height="40" alt="계좌" /> */}</>
         )}
       </div>
     </>

@@ -39,10 +39,12 @@ const RAW_RUNTIME_STATE =
           ["prettier", "npm:3.2.5"],\
           ["react", "npm:18.2.0"],\
           ["react-dom", "virtual:e6688db1f2295e4fe3d75cd48dd924fa52ad5fdccfd88f67186a42b11b7a3c2e069fadafc6ac5fd4c56f8d5c40998c85ebc4b16f84f40c4a1fe6fb7a57ace986#npm:18.2.0"],\
+          ["react-infinite-scroll-component", "virtual:e6688db1f2295e4fe3d75cd48dd924fa52ad5fdccfd88f67186a42b11b7a3c2e069fadafc6ac5fd4c56f8d5c40998c85ebc4b16f84f40c4a1fe6fb7a57ace986#npm:6.1.0"],\
           ["react-query", "virtual:e6688db1f2295e4fe3d75cd48dd924fa52ad5fdccfd88f67186a42b11b7a3c2e069fadafc6ac5fd4c56f8d5c40998c85ebc4b16f84f40c4a1fe6fb7a57ace986#npm:3.39.3"],\
           ["swiper", "npm:11.1.1"],\
           ["tailwindcss", "npm:3.4.3"],\
-          ["typescript", "patch:typescript@npm%3A5.4.5#optional!builtin<compat/typescript>::version=5.4.5&hash=5adc0c"]\
+          ["typescript", "patch:typescript@npm%3A5.4.5#optional!builtin<compat/typescript>::version=5.4.5&hash=5adc0c"],\
+          ["undici", "npm:6.14.1"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -2234,10 +2236,12 @@ const RAW_RUNTIME_STATE =
           ["prettier", "npm:3.2.5"],\
           ["react", "npm:18.2.0"],\
           ["react-dom", "virtual:e6688db1f2295e4fe3d75cd48dd924fa52ad5fdccfd88f67186a42b11b7a3c2e069fadafc6ac5fd4c56f8d5c40998c85ebc4b16f84f40c4a1fe6fb7a57ace986#npm:18.2.0"],\
+          ["react-infinite-scroll-component", "virtual:e6688db1f2295e4fe3d75cd48dd924fa52ad5fdccfd88f67186a42b11b7a3c2e069fadafc6ac5fd4c56f8d5c40998c85ebc4b16f84f40c4a1fe6fb7a57ace986#npm:6.1.0"],\
           ["react-query", "virtual:e6688db1f2295e4fe3d75cd48dd924fa52ad5fdccfd88f67186a42b11b7a3c2e069fadafc6ac5fd4c56f8d5c40998c85ebc4b16f84f40c4a1fe6fb7a57ace986#npm:3.39.3"],\
           ["swiper", "npm:11.1.1"],\
           ["tailwindcss", "npm:3.4.3"],\
-          ["typescript", "patch:typescript@npm%3A5.4.5#optional!builtin<compat/typescript>::version=5.4.5&hash=5adc0c"]\
+          ["typescript", "patch:typescript@npm%3A5.4.5#optional!builtin<compat/typescript>::version=5.4.5&hash=5adc0c"],\
+          ["undici", "npm:6.14.1"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -5334,6 +5338,29 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["react-infinite-scroll-component", [\
+      ["npm:6.1.0", {\
+        "packageLocation": "../../../../.yarn/berry/cache/react-infinite-scroll-component-npm-6.1.0-fc628f1f18-10c0.zip/node_modules/react-infinite-scroll-component/",\
+        "packageDependencies": [\
+          ["react-infinite-scroll-component", "npm:6.1.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:e6688db1f2295e4fe3d75cd48dd924fa52ad5fdccfd88f67186a42b11b7a3c2e069fadafc6ac5fd4c56f8d5c40998c85ebc4b16f84f40c4a1fe6fb7a57ace986#npm:6.1.0", {\
+        "packageLocation": "./.yarn/__virtual__/react-infinite-scroll-component-virtual-0c75345fd7/5/.yarn/berry/cache/react-infinite-scroll-component-npm-6.1.0-fc628f1f18-10c0.zip/node_modules/react-infinite-scroll-component/",\
+        "packageDependencies": [\
+          ["react-infinite-scroll-component", "virtual:e6688db1f2295e4fe3d75cd48dd924fa52ad5fdccfd88f67186a42b11b7a3c2e069fadafc6ac5fd4c56f8d5c40998c85ebc4b16f84f40c4a1fe6fb7a57ace986#npm:6.1.0"],\
+          ["@types/react", "npm:18.2.79"],\
+          ["react", "npm:18.2.0"],\
+          ["throttle-debounce", "npm:2.3.0"]\
+        ],\
+        "packagePeers": [\
+          "@types/react",\
+          "react"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["react-is", [\
       ["npm:16.13.1", {\
         "packageLocation": "../../../../.yarn/berry/cache/react-is-npm-16.13.1-a9b9382b4f-10c0.zip/node_modules/react-is/",\
@@ -6033,6 +6060,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["throttle-debounce", [\
+      ["npm:2.3.0", {\
+        "packageLocation": "../../../../.yarn/berry/cache/throttle-debounce-npm-2.3.0-0e354dff02-10c0.zip/node_modules/throttle-debounce/",\
+        "packageDependencies": [\
+          ["throttle-debounce", "npm:2.3.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["to-regex-range", [\
       ["npm:5.0.1", {\
         "packageLocation": "../../../../.yarn/berry/cache/to-regex-range-npm-5.0.1-f1e8263b00-10c0.zip/node_modules/to-regex-range/",\
@@ -6199,6 +6235,13 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["undici", "npm:5.28.4"],\
           ["@fastify/busboy", "npm:2.1.1"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:6.14.1", {\
+        "packageLocation": "../../../../.yarn/berry/cache/undici-npm-6.14.1-e00ddce842-10c0.zip/node_modules/undici/",\
+        "packageDependencies": [\
+          ["undici", "npm:6.14.1"]\
         ],\
         "linkType": "HARD"\
       }]\
