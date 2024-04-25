@@ -5,6 +5,7 @@ import {
   limit,
   query,
   startAfter,
+  where,
 } from 'firebase/firestore';
 
 import { store } from '@remote/firebase';
@@ -29,4 +30,18 @@ export async function getCards(pageParam?: QuerySnapshot<Card>) {
   }));
 
   return { items, lastVisible };
+}
+
+export async function getSearchCards(keyword: string) {
+  const searchQuery = query(
+    collection(store, COLLECTIONS.CARD),
+    where('name', '>=', keyword),
+    where('name', '<=', keyword + '\uf8ff'),
+  );
+  const snapshot = await getDocs(searchQuery);
+
+  return snapshot.docs.map((doc) => ({
+    id: doc.id,
+    ...(doc.data() as Card),
+  }));
 }

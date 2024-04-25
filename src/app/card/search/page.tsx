@@ -1,56 +1,51 @@
 'use client';
-import { useInfiniteQuery } from 'react-query';
-import InfiniteScroll from 'react-infinite-scroll-component';
-import { useCallback } from 'react';
 
-import { getCards } from '@remote/card';
+import { useDebounce } from '@components/shared/hocs/useDebounce';
+import { getSearchCards } from '@remote/card';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { ChangeEvent, useCallback, useEffect, useRef, useState } from 'react';
+import { useQuery } from 'react-query';
 
-export default function CardListPage() {
+export default function SearchPage() {
+  const [keyword, setKeyword] = useState<string>('');
+  const debouncedkeyword = useDebounce(keyword);
   const navigator = useRouter();
-  const {
-    data,
-    hasNextPage = false,
-    fetchNextPage,
-    isFetching,
-  } = useInfiniteQuery(['cards'], ({ pageParam }) => getCards(pageParam), {
-    getNextPageParam: (snapshot) => {
-      return snapshot.lastVisible;
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const { data } = useQuery(
+    ['cards', debouncedkeyword],
+    () => getSearchCards(debouncedkeyword),
+    {
+      enabled: debouncedkeyword !== '',
     },
-  });
+  );
 
-  const loadMore = useCallback(() => {
-    if (hasNextPage === false || isFetching) {
-      return;
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
     }
-    fetchNextPage();
-  }, [hasNextPage, fetchNextPage, isFetching]);
+  }, []);
 
-  if (data == null) {
-    return null;
-  }
-
-  const cards = data?.pages.map(({ items }) => items).flat();
-
+  const handleKeyword = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+    setKeyword(e.target.value);
+  }, []);
   return (
     <div>
       <h2>추천카드</h2>
       <p>회원님을 위해 준비했어요</p>
       <input
+        ref={inputRef}
         type="search"
         className="border border-slate-300  rounded-md"
-        onFocus={() => navigator.push('/card/search')}
+        value={keyword}
+        onChange={handleKeyword}
       />
-      <InfiniteScroll
-        dataLength={cards.length}
-        hasMore={hasNextPage}
-        loader={<></>}
-        next={loadMore}
-        scrollThreshold="100px"
-      >
+      {keyword !== '' && data?.length === 0 ? (
+        <p>찾는 카드가 없어요!</p>
+      ) : (
         <ul>
-          {cards.map((card, index) => (
+          {data?.map((card, index) => (
             <li key={card.id}>
               <Link
                 className="flex items-center justify-between py-2 px-6"
@@ -74,7 +69,7 @@ export default function CardListPage() {
             </li>
           ))}
         </ul>
-      </InfiniteScroll>
+      )}
     </div>
   );
 }
