@@ -1,4 +1,5 @@
 'use client';
+import AuthGuard from '@components/auth/AuthGuard';
 import Account from '@components/home/Account';
 import { CardListSkeleton } from '@components/home/CardList';
 import { CreditScoreSkeleton } from '@components/home/CreditScore';
@@ -27,12 +28,14 @@ export default function Home() {
   return (
     <main>
       <QueryClientProvider client={client}>
-        <EventBanners />
-        <Account />
-        <div className="bg-slate-200 h-2"></div>
-        <CreditScore />
-        <div className="bg-slate-200 h-2"></div>
-        <CardList />
+        <AuthGuard>
+          <EventBanners />
+          <Account />
+          <div className="bg-slate-200 h-2"></div>
+          <CreditScore />
+          <div className="bg-slate-200 h-2"></div>
+          <CardList />
+        </AuthGuard>
       </QueryClientProvider>
     </main>
   );

@@ -3,14 +3,13 @@
 import { useDebounce } from '@components/shared/hocs/useDebounce';
 import { getSearchCards } from '@remote/card';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import { ChangeEvent, useCallback, useEffect, useRef, useState } from 'react';
 import { useQuery } from 'react-query';
 
 export default function SearchPage() {
   const [keyword, setKeyword] = useState<string>('');
   const debouncedkeyword = useDebounce(keyword);
-  const navigator = useRouter();
+
   const inputRef = useRef<HTMLInputElement>(null);
 
   const { data } = useQuery(

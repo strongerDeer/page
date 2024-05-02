@@ -1,3 +1,5 @@
+import AuthSession from '@components/AuthSession';
+import Navbar from '@components/shared/Navbar';
 import '@styles/globals.css';
 
 import type { Metadata } from 'next';
@@ -14,7 +16,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko-KR">
-      <body>{children}</body>
+      <body>
+        <AuthSession>
+          <Navbar />
+          {children}
+        </AuthSession>
+      </body>
     </html>
   );
 }
