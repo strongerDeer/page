@@ -23,12 +23,14 @@
       "@app/*": ["src/app/*"],
       "@styles/*": ["src/styles/*"],
       "@components/*": ["src/components/*"],
+
       "@remote/*": ["src/remote/*"],
       "@mock/*": ["src/mock/*"],
       "@constants": ["src/constants/index"],
       "@constants/*": ["src/constants/*"],
       "@models/*": ["src/models/*"],
-      "@utils/*": ["src/utils/*"]
+      "@utils/*": ["src/utils/*"],
+      "@context/*": ["src/context/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

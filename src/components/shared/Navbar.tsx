@@ -12,7 +12,6 @@ export default function Navbar() {
 
   const showSignButton = ['/auth/signin'].includes(pathname) === false;
 
-  console.log(session);
   const renderButton = useCallback(() => {
     if (session !== null) {
       return (

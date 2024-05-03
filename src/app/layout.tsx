@@ -1,5 +1,6 @@
 import AuthSession from '@components/AuthSession';
 import Navbar from '@components/shared/Navbar';
+import { AlertContextProvider } from '@context/AlertContext';
 import '@styles/globals.css';
 
 import type { Metadata } from 'next';
@@ -17,10 +18,14 @@ export default function RootLayout({
   return (
     <html lang="ko-KR">
       <body>
-        <AuthSession>
-          <Navbar />
-          {children}
-        </AuthSession>
+        <AlertContextProvider>
+          <AuthSession>
+            <Navbar />
+            {children}
+
+            <div id="root-portal"></div>
+          </AuthSession>
+        </AlertContextProvider>
       </body>
     </html>
   );
