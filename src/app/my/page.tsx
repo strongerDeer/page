@@ -1,5 +1,5 @@
 'use client';
-import withAuth from '@components/shared/hocs/withAuth';
+import withAuth from '@hooks/withAuth';
 
 import { signOut } from 'next-auth/react';
 

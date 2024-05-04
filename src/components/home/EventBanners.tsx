@@ -1,4 +1,4 @@
-import withSuspense from '@components/shared/hocs/withSuspense';
+import withSuspense from '@hooks/withSuspense';
 import useEventBanners from './hooks/useEventBanners';
 
 import { Swiper, SwiperSlide } from 'swiper/react';

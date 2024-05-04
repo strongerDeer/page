@@ -1,3 +1,5 @@
+'use client';
+
 import addDelimiter from '@utils/addDelimiter';
 import { useRef, useEffect, useState, memo } from 'react';
 
@@ -7,12 +9,14 @@ interface CreditScoreChartProps {
   width?: number;
   height?: number;
   score: number;
+  className?: string;
 }
 
 function CreditScoreChart({
   score,
   width = 100,
   height = 100,
+  className,
 }: CreditScoreChartProps) {
   const pathRef = useRef<SVGPathElement>(null);
   const [totalLenght, setTotalLength] = useState(0);
@@ -26,7 +30,10 @@ function CreditScoreChart({
   const dashoffset = totalLenght - (score / 신용점수_최대값) * totalLenght;
 
   return (
-    <div className="relative" style={{ width: width, height: height }}>
+    <div
+      className={`relative${className ? ` ${className}` : ''}`}
+      style={{ width: width, height: height }}
+    >
       <svg
         width={width}
         height={height}

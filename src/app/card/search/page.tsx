@@ -1,6 +1,6 @@
 'use client';
 
-import { useDebounce } from '@components/shared/hocs/useDebounce';
+import { useDebounce } from '@hooks/useDebounce';
 import { getSearchCards } from '@remote/card';
 import Link from 'next/link';
 import { ChangeEvent, useCallback, useEffect, useRef, useState } from 'react';

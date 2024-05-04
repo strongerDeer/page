@@ -1,4 +1,5 @@
 import AuthSession from '@components/AuthSession';
+import QueryWrap from '@components/QueryWrap';
 import Navbar from '@components/shared/Navbar';
 import { AlertContextProvider } from '@context/AlertContext';
 import '@styles/globals.css';
@@ -18,14 +19,16 @@ export default function RootLayout({
   return (
     <html lang="ko-KR">
       <body>
-        <AlertContextProvider>
-          <AuthSession>
-            <Navbar />
-            {children}
+        <QueryWrap>
+          <AlertContextProvider>
+            <AuthSession>
+              <Navbar />
+              {children}
 
-            <div id="root-portal"></div>
-          </AuthSession>
-        </AlertContextProvider>
+              <div id="root-portal"></div>
+            </AuthSession>
+          </AlertContextProvider>
+        </QueryWrap>
       </body>
     </html>
   );

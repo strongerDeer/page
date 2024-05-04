@@ -11,7 +11,7 @@ export default function CreditScore() {
           <br /> 점수를 올리세요
         </p>
         <Link
-          href="#"
+          href="/credit"
           className="inline-flex bg-blue-500 text-white px-4 py-2 rounded-md"
         >
           내 신용점수 보러가기

@@ -1,4 +1,4 @@
-import withSuspense from '@components/shared/hocs/withSuspense';
+import withSuspense from '@hooks/withSuspense';
 import useCards from './hooks/useCards';
 import { Skeleton } from '@components/shared/Skeleton';
 
