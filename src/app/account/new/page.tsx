@@ -4,6 +4,7 @@ import useUser from '@hooks/useUser';
 import withAuth from '@hooks/withAuth';
 import { setTerms, getTerms } from '@remote/account';
 import { useEffect, useState } from 'react';
+import Form from '../form/page';
 
 // STEP 0 : 약관동의
 // STEP 1 : 계좌 개설 폼 페이지
@@ -41,6 +42,8 @@ function AccountNew() {
           }}
         />
       ) : null}
+
+      {step === 1 ? <Form /> : null}
     </>
   );
 }

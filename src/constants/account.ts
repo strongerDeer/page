@@ -1,5 +1,4 @@
-import { Term } from '@models/account';
-import { title } from 'process';
+import { Term, AccountForm } from '@models/account';
 
 export const 약관목록 = [
   {
@@ -21,3 +20,30 @@ export const 약관목록 = [
     mandatory: false,
   },
 ] as Term[];
+
+export const FORMS = [
+  {
+    id: 'name',
+    label: '한글명',
+    required: true,
+    type: 'TEXT_FIELD',
+  },
+  {
+    id: 'phone',
+    label: '휴대전화번호',
+    required: true,
+    type: 'TEXT_FIELD',
+  },
+  {
+    id: 'email',
+    label: '이메일',
+    required: true,
+    type: 'TEXT_FIELD',
+  },
+  {
+    id: 'accountName',
+    label: '통장이름',
+    required: true,
+    type: 'TEXT_FIELD',
+  },
+] as AccountForm[];
